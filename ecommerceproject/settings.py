@@ -88,16 +88,30 @@ WSGI_APPLICATION = 'ecommerceproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQLDATABASE'),
-        'USER': os.getenv('MYSQLUSER'),
-        'PASSWORD': os.getenv('MYSQLPASSWORD'),
-        'HOST': os.getenv('MYSQLHOST'),
-        'PORT': os.getenv('MYSQLPORT'),
+if os.environ.get("MYSQLHOST"):
+    # Railway DB
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get("MYSQLDATABASE"),
+            'USER': os.environ.get("MYSQLUSER"),
+            'PASSWORD': os.environ.get("MYSQLPASSWORD"),
+            'HOST': os.environ.get("MYSQLHOST"),
+            'PORT': os.environ.get("MYSQLPORT"),
+        }
     }
-}
+else:
+    # Local DB
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'ecommerce',
+            'USER': 'root',
+            'PASSWORD': '4774',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
+    }
 
 
 # Password validation
