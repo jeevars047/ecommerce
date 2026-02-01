@@ -2,3 +2,4 @@ django==5.0.2
 django-jazzmin
 gunicorn
 whitenoise
+mysqlclient
