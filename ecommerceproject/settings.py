@@ -26,12 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e-=kpyu@8=a%mhk!2%^qh#t-3h#m7fb*5w2z722#yv5-1e+tw('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
-    "ecommerce-production-90e7.up.railway.app"
+    "ecommerce-production-8ba0.up.railway.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
